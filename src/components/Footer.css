@@ -1,0 +1,17 @@
+.footer-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stamp {
+  width: clamp(75px, 10%, 100px);
+}
+
+.footer-text {
+  font-family: "Eczar";
+  font-size: 1rem;
+  color: rgb(27, 68, 128);
+}

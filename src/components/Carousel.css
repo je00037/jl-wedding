@@ -1,0 +1,17 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 24px;
+  width: 90vw;
+}
+
+@media (min-width: 1200px) {
+  .carousel {
+    width: 100%;
+    justify-content: center;
+  }
+}
