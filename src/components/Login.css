@@ -1,0 +1,61 @@
+.login-container {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.padlock {
+  width: clamp(40px, 8%, 50px);
+}
+
+.locked-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.locked-text {
+  color: rgb(96, 94, 94);
+}
+
+.password-input {
+  width: 50%;
+  height: 3rem;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  font-family: "Eczar";
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.password-input:focus {
+  outline: none;
+}
+
+.submit-input {
+  border: 2px solid rgb(255, 183, 0);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  font-family: "Eczar";
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: gold;
+  color: rgb(27, 68, 128);
+}
+
+.submit-input:disabled {
+  background-color: lightgrey;
+  color: grey;
+  border: 1px solid darkgrey;
+  font-weight: 200;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

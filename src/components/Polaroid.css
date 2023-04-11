@@ -1,0 +1,37 @@
+.image-container {
+  margin-right: 10px;
+  background-color: white;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
+}
+
+.skew-left {
+  transform: rotate(-9deg);
+}
+
+.skew-right {
+  transform: rotate(7deg);
+}
+
+.image {
+  width: 200px;
+  border-radius: 2%;
+}
+
+.caption {
+  font-family: "Nothing You Could Do";
+  font-size: 16px;
+  color: slategray;
+  align-self: flex-end;
+  padding-right: 16px;
+  transform: rotateX(20deg);
+}

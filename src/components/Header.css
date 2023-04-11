@@ -1,0 +1,63 @@
+.sunflower {
+  margin-top: 20px;
+  height: 20vmin;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  font-family: "Beth Ellen";
+  font-size: 24px;
+  color: rgb(27, 68, 128);
+}
+
+.scale {
+  animation: scaleDown 1s;
+}
+
+.scale:active {
+  animation: scaleUp 0.2s;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sunflower {
+    animation: App-logo-spin infinite 60s linear;
+    animation-delay: 1.5s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hide {
+    display: none;
+  }
+}

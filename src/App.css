@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.content-group {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 100%;
+}
+
+.headline-container {
+  width: 100vw;
+}
+
+.headline-text {
+  font-family: "Beth Ellen";
   color: white;
+  font-size: 48px;
+  line-height: 96px;
+  margin-top: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.heading {
+  font-family: "Beth Ellen";
+  font-size: 24px;
+  color: rgb(27, 68, 128);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bold {
+  font-weight: 600;
 }
+
+/* try this: */
+/* 
+button {
+  transition: all .2s ease-in-out;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+} */
