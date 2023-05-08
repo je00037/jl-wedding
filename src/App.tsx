@@ -17,7 +17,6 @@ import {
 import { egg, imagesBase, markerSvg } from "./img/images";
 import {
   fadeInAndOutConfig,
-  fadeInLaterConfig,
   fadeInSoonerConfig,
   fadeInLastConfig,
   staggerConfig,
