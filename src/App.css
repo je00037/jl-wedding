@@ -25,22 +25,6 @@
   margin-top: 0;
 }
 
-.heading {
-  font-family: "Beth Ellen";
-  font-size: 24px;
-  color: rgb(27, 68, 128);
-}
-
 .bold {
   font-weight: 600;
 }
-
-/* try this: */
-/* 
-button {
-  transition: all .2s ease-in-out;
-}
-
-button:not(:disabled):active {
-  transform: translateY(1px);
-} */

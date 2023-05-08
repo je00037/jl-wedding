@@ -6,7 +6,7 @@ interface LoginProps {
   handleLogin: () => void;
 }
 
-const Login: FC<LoginProps> = ({ handleLogin }) => {
+export const Login: FC<LoginProps> = ({ handleLogin }) => {
   const [input, setInput] = useState("");
 
   console.log({ input });
@@ -24,7 +24,7 @@ const Login: FC<LoginProps> = ({ handleLogin }) => {
 
   // digestMessage(text).then((digestHex) => console.log(digestHex));
   return (
-    <div className="login-container">
+    <div className="login-container" id="locked">
       <div className="locked-text-container">
         <img src={padlock} alt="content locked" className="padlock" />
         <h1 className="locked-text">
@@ -55,5 +55,3 @@ const Login: FC<LoginProps> = ({ handleLogin }) => {
     </div>
   );
 };
-
-export default Login;

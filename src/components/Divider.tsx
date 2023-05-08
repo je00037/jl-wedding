@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import "./Divider.css";
 import sunflower from "../img/sunflower.png";
 
-const Divider: FC = () => {
+export const Divider: FC = () => {
   return (
     <div className="container">
       <div className="line" />
@@ -15,5 +15,3 @@ const Divider: FC = () => {
     </div>
   );
 };
-
-export default Divider;

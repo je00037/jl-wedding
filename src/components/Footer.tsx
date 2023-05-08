@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import "./Footer.css";
 import stamp from "../img/stamp.png";
 
-const Footer: FC = () => {
+export const Footer: FC = () => {
   return (
     <div className="footer-container">
       <img src={stamp} alt="lj stamp" className="stamp" />
@@ -10,5 +10,3 @@ const Footer: FC = () => {
     </div>
   );
 };
-
-export default Footer;

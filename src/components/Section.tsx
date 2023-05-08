@@ -6,7 +6,7 @@ interface SectionProps {
   children?: ReactNode;
 }
 
-const Section: FC<SectionProps> = ({ title, id, children }) => {
+export const Section: FC<SectionProps> = ({ title, id, children }) => {
   return (
     <section>
       {title && <h1 id={id}>{title}</h1>}
@@ -14,5 +14,3 @@ const Section: FC<SectionProps> = ({ title, id, children }) => {
     </section>
   );
 };
-
-export default Section;
