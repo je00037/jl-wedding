@@ -5,8 +5,6 @@ interface CarouselProps {
   children?: ReactNode;
 }
 
-const Carousel: FC<CarouselProps> = ({ children }) => (
+export const Carousel: FC<CarouselProps> = ({ children }) => (
   <div className="carousel">{children}</div>
 );
-
-export default Carousel;

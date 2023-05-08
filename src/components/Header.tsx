@@ -2,45 +2,61 @@ import React, { FC } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import sunflower from "../img/sunflower.png";
 import "./Header.css";
+import { fadeInTopConfig } from "../animation-config";
+
+const navItems = [
+  {
+    title: "Venue",
+    linkID: "venue",
+  },
+  {
+    title: "Schedule",
+    linkID: "order",
+  },
+  {
+    title: "Accommodation",
+    linkID: "accom",
+  },
+  {
+    title: "Sunflower",
+  },
+  {
+    title: "Travel",
+    linkID: "travel",
+  },
+  {
+    title: "Song Request",
+    linkID: "song",
+  },
+  {
+    title: "Contact",
+    linkID: "contact",
+  },
+];
 
 interface HeaderProps {
   clickHandler: () => void;
+  authed: boolean;
 }
 
-const Header: FC<HeaderProps> = ({ clickHandler }) => {
-  const fadeIn = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    delay: 300,
-  });
+export const Header: FC<HeaderProps> = ({ clickHandler, authed }) => {
+  const fadeIn = useSpring(fadeInTopConfig);
 
   return (
     <animated.header style={fadeIn}>
       <nav className="navbar">
-        <a href="#venue" className="hide">
-          <h2>Venue</h2>
-        </a>
-        <a href="#order" className="hide">
-          <h2>Schedule</h2>
-        </a>
-        <a href="#accom" className="hide">
-          <h2>Accommodation</h2>
-        </a>
-        <div className="scale" onClick={clickHandler}>
-          <img src={sunflower} className="sunflower" alt="logo" />
-        </div>
-        <a href="#travel" className="hide">
-          <h2>Travel</h2>
-        </a>
-        <a href="#song" className="hide">
-          <h2>Song Request</h2>
-        </a>
-        <a href="#contact" className="hide">
-          <h2>Contact</h2>
-        </a>
+        {navItems.map(({ title, linkID }, index) => {
+          return index === 3 ? (
+            <div className="scale" onClick={clickHandler}>
+              <img src={sunflower} className="sunflower" alt="logo" />
+            </div>
+          ) : (
+            <a href={authed ? `#${linkID}` : "#locked"} className="hide">
+              <h2>{title}</h2>
+            </a>
+          );
+        })}
       </nav>
     </animated.header>
   );
 };
-
-export default Header;

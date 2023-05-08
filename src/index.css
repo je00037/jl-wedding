@@ -23,6 +23,7 @@ body {
   text-align: center;
 }
 
+/* use clamp for responsive font size */
 p {
   font-family: "Eczar";
   font-size: 16px;

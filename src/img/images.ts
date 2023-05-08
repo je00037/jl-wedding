@@ -29,7 +29,7 @@ export const imagesBase = [
 
 export const egg = {
   source: nycegg,
-  caption: "Enjoy this Easter Egg!",
+  caption: "New York City, 2022",
   index: 4,
 };
 

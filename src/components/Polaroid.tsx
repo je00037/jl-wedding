@@ -7,7 +7,7 @@ interface PolaroidProps {
   index: number;
 }
 
-const Polaroid: FC<PolaroidProps> = ({ image, caption, index }) => {
+export const Polaroid: FC<PolaroidProps> = ({ image, caption, index }) => {
   return (
     <div
       className={`image-container ${
@@ -19,5 +19,3 @@ const Polaroid: FC<PolaroidProps> = ({ image, caption, index }) => {
     </div>
   );
 };
-
-export default Polaroid;

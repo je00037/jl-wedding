@@ -4,18 +4,22 @@ import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 
 import "./App.css";
 
-import Carousel from "./components/Carousel";
-import Polaroid from "./components/Polaroid";
-import Divider from "./components/Divider";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Section from "./components/Section";
-import Login from "./components/Login";
+import {
+  Carousel,
+  Divider,
+  Footer,
+  Header,
+  Login,
+  Polaroid,
+  Section,
+} from "./components/index";
 
 import { egg, imagesBase, markerSvg } from "./img/images";
 import {
   fadeInAndOutConfig,
   fadeInLaterConfig,
+  fadeInSoonerConfig,
+  fadeInLastConfig,
   staggerConfig,
 } from "./animation-config";
 
@@ -29,7 +33,8 @@ function App() {
 
   const lockedContentAnimation = useTransition(isAuthed, fadeInAndOutConfig);
   const staggeredImages = useTransition(images, staggerConfig);
-  const fadeInLater = useSpring(fadeInLaterConfig);
+  const fadeInSooner = useSpring(fadeInSoonerConfig);
+  const fadeInLast = useSpring(fadeInLastConfig);
 
   const clickHandler = useCallback(() => {
     const newImages = imagesBase.concat([egg]);
@@ -38,9 +43,9 @@ function App() {
 
   return (
     <>
-      <Header clickHandler={clickHandler} />
+      <Header clickHandler={clickHandler} authed={isAuthed} />
       <main className="content">
-        <animated.div className="headline-container" style={fadeInLater}>
+        <animated.div className="headline-container" style={fadeInSooner}>
           <p className="headline-text">Lucy and Joe are getting married!</p>
         </animated.div>
         <Carousel>
@@ -50,7 +55,7 @@ function App() {
             </animated.div>
           ))}
         </Carousel>
-        <animated.p style={fadeInLater}>
+        <animated.p style={fadeInLast}>
           We can't wait to celebrate with you all on <br />
           <span className="bold">Saturday 17th August, 2024.</span>
         </animated.p>

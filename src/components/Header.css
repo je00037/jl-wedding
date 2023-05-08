@@ -22,6 +22,14 @@
   animation: scaleUp 0.2s;
 }
 
+h2:hover {
+  color: gold;
+}
+
+h2 {
+  transition: all 0.3s ease-in-out;
+}
+
 @keyframes scaleUp {
   from {
     transform: scale(1);
