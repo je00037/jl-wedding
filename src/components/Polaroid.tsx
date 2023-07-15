@@ -5,16 +5,28 @@ interface PolaroidProps {
   image: string;
   caption: string;
   index: number;
+  largeImg?: boolean;
+  skew?: boolean;
 }
 
-export const Polaroid: FC<PolaroidProps> = ({ image, caption, index }) => {
+export const Polaroid: FC<PolaroidProps> = ({
+  image,
+  caption,
+  index,
+  largeImg = false,
+  skew = true,
+}) => {
   return (
     <div
       className={`image-container ${
-        index % 2 === 0 ? "skew-left" : "skew-right"
+        skew ? (index % 2 === 0 ? "skew-left" : "skew-right") : null
       }`}
     >
-      <img src={image} alt={`polaroid-${caption}`} className="image" />
+      <img
+        src={image}
+        alt={`polaroid-${caption}`}
+        className={largeImg ? "large-image" : "image"}
+      />
       <p className="caption">{caption}</p>
     </div>
   );

@@ -1,0 +1,19 @@
+.section-container,
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .section-content {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1200px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

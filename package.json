@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.360.0",
+    "@aws-sdk/util-dynamodb": "^3.360.0",
     "@netlify/functions": "^1.4.0",
     "@react-google-maps/api": "^2.18.1",
     "@react-spring/web": "^9.7.1",

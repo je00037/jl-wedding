@@ -25,12 +25,12 @@ const navItems = [
     linkID: "travel",
   },
   {
-    title: "Song Request",
-    linkID: "song",
+    title: "RSVP",
+    linkID: "rsvp",
   },
   {
-    title: "Contact",
-    linkID: "contact",
+    title: "FAQs",
+    linkID: "faqs",
   },
 ];
 

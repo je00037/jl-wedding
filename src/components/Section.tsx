@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import "./Section.css";
 
 interface SectionProps {
   title?: string;
@@ -8,9 +9,9 @@ interface SectionProps {
 
 export const Section: FC<SectionProps> = ({ title, id, children }) => {
   return (
-    <section>
+    <section className="section-container">
       {title && <h1 id={id}>{title}</h1>}
-      {children}
+      <div className="section-content">{children}</div>
     </section>
   );
 };

@@ -1,0 +1,11 @@
+.text-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .text-container {
+    max-width: 50%;
+    text-align: left;
+  }
+}

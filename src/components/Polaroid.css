@@ -27,6 +27,11 @@
   border-radius: 2%;
 }
 
+.large-image {
+  width: 400px;
+  border-radius: 2%;
+}
+
 .caption {
   font-family: "Nothing You Could Do";
   font-size: 16px;

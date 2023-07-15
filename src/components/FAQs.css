@@ -1,0 +1,22 @@
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+/* 
+.faq-item {
+
+} */
+
+.faq-question {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: gold;
+  margin-bottom: -1rem;
+}
+
+/* .faq-answer {
+  
+} */
