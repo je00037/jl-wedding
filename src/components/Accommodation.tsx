@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import { Polaroid } from "./Polaroid";
 import "./Accommodation.css";
-import haworth from "../img/haworth.jpg";
 
 const listItems = [
   {
