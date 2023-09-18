@@ -47,11 +47,15 @@ export const Header: FC<HeaderProps> = ({ clickHandler, authed }) => {
       <nav className="navbar">
         {navItems.map(({ title, linkID }, index) => {
           return index === 3 ? (
-            <div className="scale" onClick={clickHandler}>
+            <div className="scale" onClick={clickHandler} key="sunflower-icon">
               <img src={sunflower} className="sunflower" alt="logo" />
             </div>
           ) : (
-            <a href={authed ? `#${linkID}` : "#locked"} className="hide">
+            <a
+              href={authed ? `#${linkID}` : "#locked"}
+              className="hide"
+              key={`nav-item-${index + 1}`}
+            >
               <h2>{title}</h2>
             </a>
           );

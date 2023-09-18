@@ -13,8 +13,8 @@ interface FAQsProps {
 export const FAQs: FC<FAQsProps> = ({ faqs }) => {
   return (
     <div className="faq-container">
-      {faqs.map((faq) => (
-        <div className="faq-item">
+      {faqs.map((faq, index) => (
+        <div className="faq-item" key={`faq-${index + 1}`}>
           <p className="faq-question">{faq.question}</p>
           <p className="faq-answer">{faq.answer}</p>
         </div>

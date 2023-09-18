@@ -1,11 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  AttributeValue,
-  DynamoDBClient,
-  GetItemCommand,
-  GetItemCommandInput,
-} from "@aws-sdk/client-dynamodb";
-import { unmarshall } from "@aws-sdk/util-dynamodb";
+import React, { useCallback, useState, useMemo } from "react";
 import { animated, useSpring, useTransition } from "@react-spring/web";
 import { useJsApiLoader } from "@react-google-maps/api";
 
@@ -25,7 +18,7 @@ import {
   OrderOfTheDay,
 } from "./components/index";
 
-import { egg, imagesBase } from "./img/images";
+import { egg, randomImgSelection } from "./img/images";
 import haworth from "./img/haworth.jpg";
 import {
   fadeInAndOutConfig,
@@ -36,13 +29,19 @@ import {
 
 import { faqs } from "./faqs";
 import { orders } from "./orders";
+import { Accommodation } from "./components/Accommodation";
+
+export type AuthState = "authed" | "unauthed" | "incorrect";
+
+const imageSet = randomImgSelection(4);
 
 function App() {
-  const [images, setImages] = useState(imagesBase);
+  const [images, setImages] = useState(imageSet);
+  const [loginStatus, setLoginStatus] = useState<AuthState>("unauthed");
   const [isAuthed, setIsAuthed] = useState(false);
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "***REMOVED***", // move to env var
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "",
   });
 
   const lockedContentAnimation = useTransition(isAuthed, fadeInAndOutConfig);
@@ -51,45 +50,21 @@ function App() {
   const fadeInLast = useSpring(fadeInLastConfig);
 
   const clickHandler = useCallback(() => {
-    const newImages = imagesBase.concat([egg]);
-    setImages(newImages);
+    setImages([...randomImgSelection(4), { ...egg, randomId: Math.random() }]);
   }, []);
 
-  const serverlessClickHandler = async () => {
-    const data = await fetch("/.netlify/functions/hello");
-    const json = await data.json();
-    console.log("data from server: ", json);
-  };
-
-  // accesskey for aws: ***REMOVED***
-
-  // const client = new DynamoDBClient({
-  //   region: "eu-west-2",
-  //   credentials: {
-  //     secretAccessKey: "***REMOVED***",
-  //     accessKeyId: "***REMOVED***",
-  //   },
-  // });
-
-  // const reqParams: GetItemCommandInput = {
-  //   TableName: "Wedding",
-  //   Key: { userId: { N: "1" } },
-  // };
-
-  // const getData = async () => {
-  //   try {
-  //     const req = new GetItemCommand(reqParams);
-  //     const dbdata = await client.send(req);
-  //     const data = dbdata?.Item && unmarshall(dbdata.Item);
-  //     console.log(data);
-  //   } catch (e) {
-  //     console.log("error! ", e);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  const updateAuth = useMemo(
+    () => ({
+      approve: () => {
+        setIsAuthed(true);
+        setLoginStatus("authed");
+      },
+      incorrect: () => {
+        setLoginStatus("incorrect");
+      },
+    }),
+    [setIsAuthed, setLoginStatus]
+  );
 
   return (
     <>
@@ -99,22 +74,24 @@ function App() {
           <p className="headline-text">Lucy and Joe are getting married!</p>
         </animated.div>
         <Carousel>
-          {staggeredImages((style, { source, caption, index }) => (
-            <animated.div style={style}>
-              <Polaroid image={source} caption={caption} index={index} />
-            </animated.div>
-          ))}
+          {staggeredImages((style, { source, caption, index }) => {
+            return (
+              <animated.div style={style}>
+                <Polaroid image={source} caption={caption} index={index} />
+              </animated.div>
+            );
+          })}
         </Carousel>
         <animated.p style={fadeInLast}>
           We can't wait to celebrate with you all on <br />
           <span className="bold">Saturday 17th August, 2024.</span>
         </animated.p>
-        <button onClick={serverlessClickHandler}>Test!</button>
         <Divider />
         {lockedContentAnimation((style, auth) => {
+          console.log({ auth, loginStatus });
           return !auth ? (
             <animated.section style={style} className="content-group">
-              <Login handleLogin={() => setIsAuthed(true)} />
+              <Login handleLogin={updateAuth} loginStatus={loginStatus} />
             </animated.section>
           ) : (
             <animated.section style={style} className="content-group">
@@ -134,47 +111,14 @@ function App() {
               </Section>
               <Divider />
               <Section title="Accommodation" id="accom">
-                <div style={{ marginBottom: "1.5rem" }}>
-                  <Polaroid
-                    image={haworth}
-                    caption={"Haworth High Street"}
-                    index={0}
-                    largeImg
-                    skew={false}
-                  />
-                </div>
-                <div style={{ paddingLeft: "1rem", paddingRight: "1rem" }}>
-                  <p>
-                    Haworth is a lovely village in hilly moors of West
-                    Yorkshire. There are loads of options for your stay.
-                  </p>
-                  <ul style={{ textAlign: "left" }}>
-                    <li style={{ color: "gold" }}>
-                      <span style={{ fontWeight: "bold" }}>
-                        Pubs with Rooms:&nbsp;
-                      </span>
-                      <span style={{ color: "rgb(27, 68, 128)" }}>
-                        there are numerous pubs in Haworth with rooms available.
-                      </span>
-                    </li>
-                    <li>
-                      Traditional B&Bs: Several traditional B&Bs serve Haworth
-                      and the local area.
-                    </li>
-                    <li>
-                      Air B&Bs: There are a huge number of Air B&Bs to consider
-                      in Haworth and the surrounding area.
-                    </li>
-                    <li>
-                      Premier Inn: A Premier Inn is situated in Bingley, a 15
-                      minute drive away.
-                    </li>
-                    <li>
-                      Travelodge: A 10 minute drive will take you to Keighley
-                      where there's a Travelodge.
-                    </li>
-                  </ul>
-                </div>
+                <Polaroid
+                  image={haworth}
+                  caption={"Haworth High Street"}
+                  index={0}
+                  largeImg
+                  skew={false}
+                />
+                <Accommodation />
               </Section>
               <Divider />
               <Section title="Travel & Taxis" id="travel" />

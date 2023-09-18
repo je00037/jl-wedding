@@ -1,6 +1,7 @@
 .login-container {
   margin-top: 4rem;
   margin-bottom: 4rem;
+  width: 100%;
 }
 
 .padlock {
@@ -12,14 +13,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .locked-text {
   color: rgb(96, 94, 94);
 }
 
+.locked-text-incorrect {
+  color: rgb(121, 15, 15);
+}
+
+.shake {
+  animation-duration: 0.2s;
+  animation-iteration-count: 4;
+  animation-name: shake;
+  animation-timing-function: ease-in-out;
+}
+
 .password-input {
-  width: 50%;
+  width: 25%;
   height: 3rem;
   border: none;
   border-radius: 12px;
@@ -63,4 +76,14 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+@keyframes shake {
+  25% {
+    margin-left: -10px;
+  }
+
+  75% {
+    margin-right: 30px;
+  }
 }

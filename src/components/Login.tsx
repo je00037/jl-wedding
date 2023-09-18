@@ -1,55 +1,104 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import "./Login.css";
 import padlock from "../img/padlock.png";
+import { AuthState } from "../App";
+import { animated, useTransition } from "@react-spring/web";
+import { fadeInAndOutConfigTwo } from "../animation-config";
+import { LoadingDots } from "./LoadingDots";
+import { useCheckPassword } from "../hooks/useCheckPassword";
 
 interface LoginProps {
-  handleLogin: () => void;
+  handleLogin: {
+    approve: () => void;
+    incorrect: () => void;
+  };
+  loginStatus: AuthState;
 }
 
-export const Login: FC<LoginProps> = ({ handleLogin }) => {
+// {lockedContentAnimation((style, auth) => {
+//   console.log({ auth, loginStatus });
+//   return !auth ? (
+//     <animated.section style={style} className="content-group">
+//       <Login
+//         handleLogin={serverlessClickHandler}
+//         loginStatus={loginStatus}
+//       />
+//     </animated.section>
+
+export const Login: FC<LoginProps> = ({ handleLogin, loginStatus }) => {
   const [input, setInput] = useState("");
 
-  console.log({ input });
-  // const text = "yorkshire";
+  const loginTextAnimation = useTransition(loginStatus, fadeInAndOutConfigTwo);
 
-  // async function digestMessage(message: any) {
-  //   const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
-  //   const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8); // hash the message
-  //   const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
-  //   const hashHex = hashArray
-  //     .map((b) => b.toString(16).padStart(2, "0"))
-  //     .join(""); // convert bytes to hex string
-  //   return hashHex;
-  // }
+  const { isLoading, isSuccess, incorrectCount, checkPassword } =
+    useCheckPassword();
 
-  // digestMessage(text).then((digestHex) => console.log(digestHex));
+  useEffect(() => {
+    if (isSuccess === true) {
+      handleLogin.approve();
+    } else if (isSuccess === false) {
+      handleLogin.incorrect();
+      setInput("");
+    }
+  }, [handleLogin, isSuccess, incorrectCount]);
+
+  let loginText: string;
+  switch (loginStatus) {
+    case "unauthed":
+      loginText = "Enter your password to unlock more details...";
+      break;
+    case "incorrect":
+      loginText = "That isn't quite right - try again...";
+      break;
+    default:
+      loginText = "";
+  }
+
   return (
     <div className="login-container" id="locked">
       <div className="locked-text-container">
         <img src={padlock} alt="content locked" className="padlock" />
-        <h1 className="locked-text">
-          Enter your password to unlock more details...
-        </h1>
+        {loginTextAnimation((style, _) => (
+          <animated.h1
+            className={
+              loginStatus === "unauthed"
+                ? "locked-text"
+                : incorrectCount > 1
+                ? "locked-text-incorrect shake"
+                : "locked-text-incorrect"
+            }
+            style={style}
+          >
+            {loginText}
+          </animated.h1>
+        ))}
+        {/* <h1
+          className="locked-text"
+          style={loginStatus === "incorrect" ? { color: "darkred" } : {}}
+        >
+          {loginText}
+        </h1> */}
       </div>
       <form>
         <div className="form-container">
           <input
             name="password"
-            type="text"
+            type="password"
             className="password-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             autoComplete="off"
           />
-          <input
-            type="submit"
+          <button
             onClick={(e) => {
               e.preventDefault();
-              handleLogin();
+              checkPassword(input);
             }}
             className="submit-input"
-            disabled={input === "" ? true : false}
-          />
+            disabled={input === "" || isLoading ? true : false}
+          >
+            {isLoading ? <LoadingDots /> : "Submit"}
+          </button>
         </div>
       </form>
     </div>

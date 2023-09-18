@@ -40,3 +40,8 @@
   padding-right: 16px;
   transform: rotateX(20deg);
 }
+
+.hearts {
+  background-image: url("../img/hearts.jpg");
+  background-size: cover;
+}

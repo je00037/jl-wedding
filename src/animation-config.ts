@@ -41,3 +41,14 @@ export const fadeInAndOutConfig = {
   },
   exitBeforeEnter: true,
 };
+
+export const fadeInAndOutConfigTwo = {
+  from: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  delay: 300,
+  exitBeforeEnter: true,
+};

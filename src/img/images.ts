@@ -3,34 +3,94 @@ import glasto from "./glastonbury.jpg";
 import madrid from "./madrid2020.jpg";
 import italy from "./italy2020.jpg";
 import nycegg from "./nyc-egg.jpg";
+import yorkshire1 from "./yorkshire2021.jpg";
+import yorkshire2 from "./yorkshire2021-2.jpg";
+import keswick from "./keswick-2020.jpg";
+import krakow from "./krakow-2018.jpg";
+import liverpool from "./liverpool-2018.jpg";
+import london from "./london-2018.jpg";
+import majorca from "./majorca-2022.jpg";
+import nottingham from "./nottingham-2020.jpg";
+import york from "./york-2018.jpg";
+import leeds from "./leeds-2023.jpg";
+import glastonbury from "./glastonbury-2023.jpg";
+import lisbon from "./lisbon-2022.jpeg";
+import saltburn from "./saltburn-2023.jpeg";
 
-export const imagesBase = [
+interface ImageSource {
+  source: string;
+  caption: string;
+  index?: number;
+  randomId?: number;
+}
+
+type ImageSet = ImageSource[];
+
+export const imagesBase: ImageSet = [
   {
     source: us,
-    caption: "New York City, 2022",
-    index: 0,
+    caption: " New York City, 2022",
   },
   {
     source: madrid,
-    caption: "Madrid, July 2020",
-    index: 1,
+    caption: "Madrid, July 2019",
   },
   {
     source: glasto,
     caption: "Glastonbury, June 2022",
-    index: 2,
   },
   {
     source: italy,
-    caption: "Italy, April 2020",
-    index: 3,
+    caption: "Italy, April 2019",
   },
+  {
+    source: yorkshire1,
+    caption: "Yorkshire, 2021",
+  },
+  {
+    source: yorkshire2,
+    caption: "Yorkshire, 2021",
+  },
+  { source: keswick, caption: "Keswick, August 2020" },
+  { source: krakow, caption: "Krakow, December 2018" },
+  { source: liverpool, caption: "Liverpool, April 2018" },
+  { source: london, caption: "London, 2018" },
+  { source: majorca, caption: "Majorca, September 2022" },
+  { source: nottingham, caption: "Nottingham, 2020" },
+  { source: york, caption: "York, 2018" },
+  { source: saltburn, caption: "Saltburn-by-the-Sea, 2023" },
+  { source: lisbon, caption: "Lisbon, April 2022" },
+  { source: glastonbury, caption: "Glasto, June 2023" },
+  { source: leeds, caption: "Leeds, June 2023" },
 ];
+
+export const randomImgSelection = (maxImgs: number) => {
+  let randomSelection: ImageSet = [];
+  const localImages = [...imagesBase];
+  for (let i = 0; i < maxImgs; i++) {
+    const randomIndex = getRandomInt(0, localImages.length - 1);
+    const item = localImages[randomIndex];
+    const itemToPush = {
+      ...item,
+      index: i,
+    };
+    randomSelection.push(itemToPush);
+    localImages.splice(randomIndex, 1);
+  }
+  return randomSelection;
+};
+
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export const egg = {
   source: nycegg,
   caption: "New York City, 2022",
   index: 4,
+  randomId: Math.random(),
 };
 
 export const markerSvg = {
