@@ -19,7 +19,7 @@ import {
 } from "./components/index";
 
 import { egg, randomImgSelection } from "./img/images";
-import haworth from "./img/haworth.jpg";
+import haworth from "./img/haworth.webp";
 import {
   fadeInAndOutConfig,
   fadeInSoonerConfig,

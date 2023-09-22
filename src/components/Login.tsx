@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import "./Login.css";
-import padlock from "../img/padlock.png";
+import padlock from "../img/padlock.webp";
 import { AuthState } from "../App";
 import { animated, useTransition } from "@react-spring/web";
 import { fadeInAndOutConfigTwo } from "../animation-config";

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Footer.css";
-import stamp from "../img/stamp.png";
+import stamp from "../img/stamp.webp";
 
 export const Footer: FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { animated, useSpring } from "@react-spring/web";
-import sunflower from "../img/sunflower.png";
+import sunflower from "../img/sunflower.webp";
 import "./Header.css";
 import { fadeInTopConfig } from "../animation-config";
 

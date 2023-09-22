@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Divider.css";
-import sunflower from "../img/sunflower.png";
+import sunflower from "../img/sunflower.webp";
 
 export const Divider: FC = () => {
   return (
