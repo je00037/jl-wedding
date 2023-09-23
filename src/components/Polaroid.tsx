@@ -1,4 +1,6 @@
+import { animated, useSpring } from "@react-spring/web";
 import React, { FC } from "react";
+import { fadeInLastConfig } from "../animation-config";
 import "./Polaroid.css";
 
 interface PolaroidProps {
@@ -16,6 +18,7 @@ export const Polaroid: FC<PolaroidProps> = ({
   largeImg = false,
   skew = true,
 }) => {
+  const fadeInLate = useSpring(fadeInLastConfig);
   if (index === undefined) {
     return null;
   }
@@ -25,7 +28,8 @@ export const Polaroid: FC<PolaroidProps> = ({
         skew ? (index % 2 === 0 ? "skew-left" : "skew-right") : null
       } ${caption === "New York City, 2022" ? "hearts" : null}`}
     >
-      <img
+      <animated.img
+        style={fadeInLate}
         src={image}
         alt={`polaroid-${caption}`}
         className={largeImg ? "large-image" : "image"}
