@@ -132,8 +132,8 @@ function App() {
           );
         })}
         <Divider />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
