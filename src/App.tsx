@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import { animated, useSpring, useTransition } from "@react-spring/web";
 import { useJsApiLoader } from "@react-google-maps/api";
+import Confetti from "react-confetti";
 
 import "./App.css";
 
@@ -68,6 +69,9 @@ function App() {
 
   return (
     <>
+      <animated.div style={fadeInLast}>
+        <Confetti recycle={false} numberOfPieces={250} />
+      </animated.div>
       <Header clickHandler={clickHandler} authed={isAuthed} />
       <main className="content">
         <animated.div className="headline-container" style={fadeInSooner}>
