@@ -136,11 +136,6 @@ function App() {
               <Section title="Travel & Taxis" id="travel">
                 <img src={taxi} alt="bronte-taxis" style={{ width: "80%" }} />
                 <p>
-                  The local taxi company are Bronte Taxis. In due course we will
-                  be arranging cars with them to be on-hand for taking people to
-                  bed after the reception.
-                </p>
-                <p>
                   From Leeds, it's easy to get the train or bus (such as the
                   Aireline 60) to Keighley. You would then need a local bus or
                   short taxi from there to get to Haworth.
@@ -149,6 +144,11 @@ function App() {
                   There are also likely to be several drivers that you might be
                   able to have a lift with, details of which we can share nearer
                   the time.
+                </p>
+                <p>
+                  The local taxi company are Bronte Taxis. In due course we will
+                  be arranging cars with them to be on-hand for taking people to
+                  bed after the reception.
                 </p>
               </Section>
               <Divider />
