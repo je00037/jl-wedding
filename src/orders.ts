@@ -1,38 +1,10 @@
 export const orders = [
   {
-    time: "7pm, Friday",
-    text: "For those arriving in Haworth on the day before the wedding, we would love to welcome you all to The Fleece for food & drinks.",
+    time: "Friday 16th August",
+    text: "We know that lots of guests will be arriving the night before, so we'd love to get together for drinks. We will update this nearer to the time with Friday evening plans.",
   },
   {
-    time: "12 Noon, Saturday",
-    text: "Guests arrive.",
-  },
-  {
-    time: "1.30pm",
-    text: "The wedding ceremony will begin.",
-  },
-  {
-    time: "2pm",
-    text: "Drinks, mingling, and photographs.",
-  },
-  {
-    time: "4.30pm",
-    text: "Dinner time!",
-  },
-  {
-    time: "6pm",
-    text: "Speeches from the Groom, Best Man, Father of the Groom, and the Bride!",
-  },
-  {
-    time: "7pm",
-    text: "The Poets provide the evening musical entertainment.",
-  },
-  {
-    time: "11pm",
-    text: "Last orders at the bar.",
-  },
-  {
-    time: "11.30pm",
-    text: "Curfew - taxis will be waiting.",
+    time: "Saturday 17th August",
+    text: "We will be asking guests to arrive at Ponden Mill at 12.30pm, for a 1pm ceremony. The evening reception will finish around 11.30pm.",
   },
 ];

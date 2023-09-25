@@ -83,7 +83,6 @@ export const Login: FC<LoginProps> = ({ handleLogin, loginStatus }) => {
         <div className="form-container">
           <input
             name="password"
-            type="password"
             className="password-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
