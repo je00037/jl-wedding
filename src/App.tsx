@@ -40,7 +40,9 @@ const imageSet = randomImgSelection(4);
 function App() {
   const [images, setImages] = useState(imageSet);
   const [loginStatus, setLoginStatus] = useState<AuthState>("unauthed");
-  const [isAuthed, setIsAuthed] = useState(false);
+  const [isAuthed, setIsAuthed] = useState(
+    window.localStorage.getItem("ljwauth") ? true : false
+  );
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "",
@@ -60,6 +62,7 @@ function App() {
       approve: () => {
         setIsAuthed(true);
         setLoginStatus("authed");
+        window.localStorage.setItem("ljwauth", "true");
       },
       incorrect: () => {
         setLoginStatus("incorrect");
