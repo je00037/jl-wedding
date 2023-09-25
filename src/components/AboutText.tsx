@@ -39,11 +39,10 @@ export const AboutText: FC = () => {
       </p>
       <p>
         The surrounding area is beautiful. It's well worth taking the time to
-        explore a little - see the{" "}
-        <a className="link" href="#faqs">
-          FAQs
-        </a>{" "}
-        for some suggestions!
+        explore a little! There is the Worth Valley Steam Railway, or a cracking
+        walk across the moors to the Bronte Waterfalls and Top Withens; or just
+        explore Haworth and the Central Park and wander around the picturesque
+        High Street.
       </p>
     </div>
   );
