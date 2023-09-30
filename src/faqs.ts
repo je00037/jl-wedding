@@ -37,7 +37,7 @@ export const faqs = [
       "Fingers crossed, our ceremony will be taking place outside on a grassy area. You may wish to avoid wearing stiletto style heels so they don’t get stuck in the ground. We have an indoor option if the weather is not on our side.",
   },
   {
-    question: "More FAQs to be added in due couse.",
+    question: "More FAQs to be added in due course.",
     answer: "Check back in 2024!",
   },
 ];
