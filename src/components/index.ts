@@ -9,3 +9,4 @@ export { Map } from "./Map";
 export { AboutText } from "./AboutText";
 export { FAQs } from "./FAQs";
 export { OrderOfTheDay } from "./OrderOfTheDay";
+export { RSVPForm } from "./RSVPForm";

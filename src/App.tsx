@@ -17,6 +17,7 @@ import {
   AboutText,
   FAQs,
   OrderOfTheDay,
+  RSVPForm,
 } from "./components/index";
 
 import { egg, randomImgSelection } from "./img/images";
@@ -90,6 +91,7 @@ function App() {
             );
           })}
         </Carousel>
+        <RSVPForm />
         <animated.p style={fadeInLast}>
           We can't wait to celebrate with you all on <br />
           <span className="bold">Saturday 17th August, 2024.</span>
