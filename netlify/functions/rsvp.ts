@@ -19,6 +19,8 @@ const CREDENTIALS_PATH = path.join(process.cwd(), "credentials.json");
  *
  * @return {Promise<OAuth2Client|null>}
  */
+
+// TODO: MOVE THESE TO ENV VARS
 async function loadSavedCredentialsIfExist() {
   try {
     const content = await fs.readFile(TOKEN_PATH);
