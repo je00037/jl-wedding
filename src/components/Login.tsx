@@ -11,6 +11,7 @@ interface LoginProps {
   handleLogin: {
     approve: () => void;
     incorrect: () => void;
+    error: () => void;
   };
   loginStatus: AuthState;
 }
@@ -30,17 +31,19 @@ export const Login: FC<LoginProps> = ({ handleLogin, loginStatus }) => {
 
   const loginTextAnimation = useTransition(loginStatus, fadeInAndOutConfigTwo);
 
-  const { isLoading, isSuccess, incorrectCount, checkPassword } =
+  const { isLoading, outcome, incorrectCount, checkPassword } =
     useCheckPassword();
 
   useEffect(() => {
-    if (isSuccess === true) {
+    if (outcome === "authed") {
       handleLogin.approve();
-    } else if (isSuccess === false) {
+    } else if (outcome === "incorrect") {
       handleLogin.incorrect();
       setInput("");
+    } else if (outcome === "error") {
+      handleLogin.error();
     }
-  }, [handleLogin, isSuccess, incorrectCount]);
+  }, [handleLogin, outcome, incorrectCount]);
 
   let loginText: string;
   switch (loginStatus) {
@@ -49,6 +52,10 @@ export const Login: FC<LoginProps> = ({ handleLogin, loginStatus }) => {
       break;
     case "incorrect":
       loginText = "That isn't quite right - try again...";
+      break;
+    case "error":
+      loginText =
+        "Hmm, an error! Not your fault - try the same password again.";
       break;
     default:
       loginText = "";

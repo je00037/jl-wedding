@@ -42,7 +42,7 @@ export const AboutText: FC = () => {
         explore a little! There is the Worth Valley Steam Railway, or a cracking
         walk across the moors to the Bronte Waterfalls and Top Withens; or just
         explore Haworth and the Central Park and wander around the picturesque
-        High Street.
+        Main Street.
       </p>
     </div>
   );

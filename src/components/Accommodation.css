@@ -1,11 +1,13 @@
 .text-container {
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .bullet-label {
-  color: gold;
+  color: rgb(27, 68, 128);
   font-weight: bold;
+  text-decoration: underline;
 }
 
 @media (min-width: 1000px) {

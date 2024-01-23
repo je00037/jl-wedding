@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { AuthState } from "../App";
 
 export function useCheckPassword() {
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState<boolean>();
+  const [outcome, setOutcome] = useState<AuthState>();
   const [incorrectCount, setIncorrectCount] = useState(0);
 
   async function checkPassword(pwd: string) {
@@ -16,16 +17,19 @@ export function useCheckPassword() {
       console.log("returned to client: ", json);
       if (json.successfulLogin) {
         console.log("password good!");
-        setIsSuccess(true);
+        setOutcome("authed");
         setIsLoading(false);
       } else {
         console.log("not authorised, wrong password!");
-        setIsSuccess(false);
+        setOutcome("incorrect");
         setIsLoading(false);
         setIncorrectCount((prevCount) => ++prevCount);
       }
-    } catch (e) {}
+    } catch (e) {
+      setOutcome("error");
+      setIsLoading(false);
+    }
   }
 
-  return { isLoading, isSuccess, incorrectCount, checkPassword };
+  return { isLoading, outcome, incorrectCount, checkPassword };
 }

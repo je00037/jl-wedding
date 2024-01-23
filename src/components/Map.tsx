@@ -8,6 +8,7 @@ export const Map: FC = () => {
       mapContainerStyle={{
         width: "90%",
         height: "400px",
+        marginTop: "1rem",
       }}
       zoom={15}
       center={{

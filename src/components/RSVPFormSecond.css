@@ -1,0 +1,143 @@
+.rsvp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.submit-rsvp {
+  border: 2px solid rgb(255, 183, 0);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  font-family: "Eczar";
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: gold;
+  color: rgb(27, 68, 128);
+}
+
+.submit-rsvp:disabled {
+  background-color: lightgrey;
+  color: grey;
+  border: 1px solid darkgrey;
+  font-weight: 200;
+}
+
+.field-item {
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  font-family: "Eczar";
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.guest-add-btn {
+  border: 2px solid greenyellow;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-family: "Eczar";
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  animation: scaleUp 0.2s;
+}
+
+.guest-add-btn:disabled {
+  background-color: lightgrey;
+  color: grey;
+  border: 1px solid darkgrey;
+  font-weight: 200;
+}
+
+.guest-add-btn:active {
+  animation: scaleDown 0.2s;
+}
+
+.guest-minus-btn {
+  border: 2px solid red;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-family: "Eczar";
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: darkred;
+  color: white;
+  animation: scaleUp 0.2s;
+}
+
+.guest-minus-btn:disabled {
+  background-color: lightgrey;
+  color: grey;
+  border: 1px solid darkgrey;
+  font-weight: 200;
+}
+
+.guest-minus-btn:active {
+  animation: scaleDown 0.2s;
+}
+
+.submission-error {
+  color: rgb(160, 3, 3);
+  font-weight: bold;
+}
+
+.rsvp-thanks {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .rsvp-container {
+    width: 70%;
+  }
+
+  .field-container {
+    width: 80%;
+  }
+
+  .field-item {
+    width: 80%;
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}

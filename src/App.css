@@ -29,3 +29,9 @@
 .bold {
   font-weight: 600;
 }
+
+@media (min-width: 1000px) {
+  .travel-text {
+    flex-direction: column;
+  }
+}

@@ -8,6 +8,10 @@
   gap: 1rem;
 }
 
+.section-heading {
+  margin-bottom: -0.5rem;
+}
+
 @media (min-width: 1000px) {
   .section-content {
     flex-direction: row;

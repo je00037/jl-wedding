@@ -5,13 +5,19 @@
   align-items: center;
 }
 
-.order-item {
+/* .order-item {
   margin-bottom: -1rem;
-}
+} */
 
 .order-time {
   font-weight: bold;
   font-size: 1.5rem;
-  color: gold;
   margin-bottom: -1rem;
+}
+
+.order-time-date {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: gold;
+  margin-bottom: -0.25rem;
 }

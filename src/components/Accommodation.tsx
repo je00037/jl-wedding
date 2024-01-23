@@ -52,9 +52,9 @@ export const Accommodation: FC = () => {
         {listItems.map((item) => (
           <li>
             <a href={item.url} target="_blank" rel="noreferrer">
-              <span className="bullet-label">{item.title}:&nbsp;</span>
+              <span className="bullet-label">{item.title}:</span>
             </a>
-            <span>{item.description}</span>
+            <span>&nbsp;{item.description}</span>
           </li>
         ))}
       </ul>

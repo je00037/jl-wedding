@@ -3,7 +3,7 @@ import "./OrderOfTheDay.css";
 
 type OrderItem = {
   time: string;
-  text: string;
+  text?: string;
 };
 
 interface OrderOfTheDayProps {
@@ -15,8 +15,14 @@ export const OrderOfTheDay: FC<OrderOfTheDayProps> = ({ orders }) => {
     <div className="orders-container">
       {orders.map((order, index) => (
         <div className="order-item" key={`order-${index + 1}`}>
-          <p className="order-time">{order.time}</p>
-          <p className="order-text">{order.text}</p>
+          <p
+            className={
+              index === 0 || index === 3 ? "order-time-date" : "order-time"
+            }
+          >
+            {order.time}
+          </p>
+          {order.text && <p className="order-text">{order.text}</p>}
         </div>
       ))}
     </div>
