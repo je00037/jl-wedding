@@ -20,12 +20,17 @@ const CREDENTIALS_PATH = path.join(process.cwd(), "credentials.json");
  * @return {Promise<OAuth2Client|null>}
  */
 
-// TODO: MOVE THESE TO ENV VARS
 async function loadSavedCredentialsIfExist() {
   try {
-    const content = await fs.readFile(TOKEN_PATH);
-    const credentials = JSON.parse(content);
-    return google.auth.fromJSON(credentials);
+    // const content = await fs.readFile(TOKEN_PATH);
+    // const credentials = JSON.parse(content);
+    const creds = {
+      type: "authorized_user",
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      client_secret: process.env.REACT_APP_GOOGLE_CLIENT_SECRET,
+      refresh_token: process.env.REACT_APP_GOOGLE_REFRESH_TOKEN,
+    };
+    return google.auth.fromJSON(creds);
   } catch (err) {
     return null;
   }

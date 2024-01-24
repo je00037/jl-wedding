@@ -63,7 +63,7 @@ const validate = (values: Values) => {
 };
 
 export const RSVPFormSecond: FC = () => {
-  const [guestInputs, setGuestInputs] = useState(2);
+  const [guestInputs, setGuestInputs] = useState(1);
   const [showLimitMsg, setShowLimitMsg] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -108,7 +108,7 @@ export const RSVPFormSecond: FC = () => {
         validateOnMount
         initialValues={{
           name1: "",
-          name2: "",
+          name2: " ",
           name3: " ",
           name4: " ",
           dietary: "",

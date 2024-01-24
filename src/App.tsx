@@ -40,7 +40,7 @@ const imageSet = randomImgSelection(4);
 
 const RSVP_SUBTITLE =
   "We're really looking forward to welcoming you to our wedding. If for any reason you can't make it, please let Lucy or Joe know directly.";
-const RSVP_ENABLED = false;
+const RSVP_ENABLED = true;
 
 // TODO: Fix submission of single 1 RSVP
 
