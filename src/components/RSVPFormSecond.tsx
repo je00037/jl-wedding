@@ -189,7 +189,7 @@ export const RSVPFormSecond: FC = () => {
                 )}
               </div>
               <div className="field-container">
-                <label htmlFor="song">A song you'll dance to:</label>
+                <label htmlFor="song">A song that'll get you dancing:</label>
                 <Field
                   name="song"
                   type="text"
