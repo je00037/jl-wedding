@@ -1,8 +1,8 @@
 export const faqs = [
   {
-    question: "How do we get to Howarth?",
+    question: "How do we get to Haworth?",
     answer:
-      "The easiest way to get to Howarth given its semi-rural location is by car and there is plenty of parking at the venue itself. Otherwise you could travel by train to Keighley station and then take a taxi (approx 15 minutes) or a bus (approx 25 minutes). Your accommodation may not have its own parking, but there are various large car parks in the town where you can leave your car overnight (and they are quite cheap).",
+      "The easiest way to get to Haworth given its semi-rural location is by car and there is plenty of parking at the venue itself. Otherwise you could travel by train to Keighley station and then take a taxi (approx 15 minutes) or a bus (approx 25 minutes). Your accommodation may not have its own parking, but there are various large car parks in the town where you can leave your car overnight (and they are quite cheap).",
   },
   {
     question: "When should we book our accommodation?",
@@ -39,6 +39,11 @@ export const faqs = [
     question: "Are children invited?",
     answer:
       "Unfortunately we don’t have enough space for lots of children so we are only inviting the children of very close family members to our wedding.",
+  },
+  {
+    question: "What about gifts?",
+    answer:
+      "If you would like to give us a wedding gift then we will, of course, be very grateful to receive it. However, we appreciate the effort and expense that everybody has already gone to in order to spend the day with us. We are not expecting anything, and you should not feel obliged to give us anything.",
   },
   {
     question:
