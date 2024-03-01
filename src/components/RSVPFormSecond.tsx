@@ -175,7 +175,9 @@ export const RSVPFormSecond: FC = () => {
                 </button>
               </div>
               <div className="field-container">
-                <label htmlFor="dietary">Dietary requirements, if any:</label>
+                <label htmlFor="dietary">
+                  Dietary requirements for your party?:
+                </label>
                 <Field
                   name="dietary"
                   type="text"
